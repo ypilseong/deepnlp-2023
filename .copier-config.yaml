@@ -1,0 +1,38 @@
+# Changes here will be overwritten by Copier; do NOT edit manually
+_commit: v0.11.7
+_src_path: gh:entelecheia/hyperfast-python-template
+author: Young Joon Lee
+build_and_release: true
+code_template_answers_file: .copier-hyfi-config.yaml
+code_template_source: ''
+codecov_graph_token: '[REPLACE_ME]'
+copyright_year: 2023
+documentaion_tool: jupyter-book
+documentation_url: https://chu-aie.github.io/deepnlp-2023
+email: entelecheia@hotmail.com
+favicon_path: https://assets.entelecheia.ai/favicon.png
+friendly_name: Deep Learning for NLP Course 2023
+github_repo_name: deepnlp-2023
+github_username: chu-aie
+google_analytics_id: ''
+logo_path: ''
+main_branch: main
+package_name: deepnlp2023
+package_scripts:
+- deepnlp2023 = 'deepnlp2023.__cli__:main'
+poe_task_files:
+- .tasks.toml
+- .tasks-extra.toml
+project_description: 자연어 처리(NLP)를 위한 딥러닝 과정은 대학생들이 딥러닝을 사용하여 자연어 처리 문제에 대한 첨단 기술을
+    이해하고 적용할 수 있는 필수 기술과 지식을 갖추도록 하기 위한 전문 과정이다.
+project_license: CC-BY-4.0
+project_name: deepnlp-2023
+project_short_description: Deep Learning for NLP is a specialized course aimed at
+    equipping undergraduate students with the essential skills and knowledge needed
+    to work on cutting-edge Natural Language Processing (NLP) problems using deep
+    learning.
+upload_to_release: true
+upload_to_repository: false
+use_launch_buttons: true
+use_source_code_skeleton: true
+
