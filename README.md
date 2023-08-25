@@ -35,7 +35,8 @@ Deep Learning for NLP is a specialized course aimed at equipping undergraduate s
 
 - Documentation: [https://chu-aie.github.io/deepnlp-2023][docs-url]
 - GitHub: [https://github.com/chu-aie/deepnlp-2023][repo-url]
-
+- Course Syllabus: [https://course.entelecheia.ai/kr/2023-2/nlp_deep/](https://course.entelecheia.ai/kr/2023-2/nlp_deep/)
+- Lecture Notes: [https://lecture.entelecheia.ai/lectures/nlp_deep/](https://lecture.entelecheia.ai/lectures/nlp_deep/)
 
 자연어 처리(NLP)를 위한 딥러닝 과정은 대학생들이 딥러닝을 사용하여 자연어 처리 문제에 대한 첨단 기술을 이해하고 적용할 수 있는 필수 기술과 지식을 갖추도록 하기 위한 전문 과정이다.
 
