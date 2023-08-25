@@ -6,8 +6,14 @@
 [![license-image]][license-url]
 [![codecov][codecov-image]][codecov-url]
 [![jupyter-book-image]][docs-url]
+[![course-img]][course-url]
+[![lecture-img]][lecture-url]
 
 <!-- Links: -->
+[course-img]: https://img.shields.io/badge/course-entelecheia.ai-blue
+[course-url]: https://course.entelecheia.ai
+[lecture-img]: https://img.shields.io/badge/lecture-entelecheia.ai-blue
+[lecture-url]: https://lecture.entelecheia.ai
 [codecov-image]: https://codecov.io/gh/chu-aie/deepnlp-2023/branch/main/graph/badge.svg?token=[REPLACE_ME]
 [codecov-url]: https://codecov.io/gh/chu-aie/deepnlp-2023
 [pypi-image]: https://img.shields.io/pypi/v/deepnlp-2023
