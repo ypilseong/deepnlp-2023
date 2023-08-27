@@ -1,9 +1,11 @@
+
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
 root: index
 chapters:
-  - file: usage
-  - file: api
-  - file: examples
+  - file: syllabus/index
+  - file: projects/index
+    sections:
+      - file: projects/id/index
