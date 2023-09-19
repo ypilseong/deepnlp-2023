@@ -1,7 +1,5 @@
-# Name
+## Yang_Gwon_woo
 
-yang_gwon_woo
-
-## Description
+## 202332012
 
 for future and evolution of data science with drones
