@@ -1,4 +1,2 @@
-# Name
-yang gwon woo
-## Description
-202332012
+# yang gwon woo
+## 202332012
