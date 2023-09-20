@@ -92,7 +92,7 @@ sphinx:
     - sphinx_examples
     - hoverxref.extension
     - sphinxcontrib.youtube
-    - sphinxcontrib.video
+    # - sphinxcontrib.video
     - sphinxcontrib.mermaid
     - sphinx_thebe
     - sphinx_carousel.carousel
