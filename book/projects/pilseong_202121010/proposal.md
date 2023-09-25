@@ -2,7 +2,7 @@
 
 _Prepared by: [Group Name]_
 
-1. Pilseong_202121010
+1. [Name and Student ID]
 2. [Name and Student ID]
 
 
