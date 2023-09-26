@@ -91,7 +91,7 @@ sphinx:
     - sphinx_proof
     - sphinx_examples
     - hoverxref.extension
-    - sphinxcontrib.youtube
+    # - sphinxcontrib.youtube
     - sphinxcontrib.video
     - sphinxcontrib.mermaid
     - sphinx_thebe

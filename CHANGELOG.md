@@ -1,5 +1,11 @@
 <!--next-version-placeholder-->
 
+## v0.3.0 (2023-09-17)
+
+### Feature
+
+* **projects:** Add proposal template ([`7b0466f`](https://github.com/chu-aie/deepnlp-2023/commit/7b0466f722af9eabc043ef3b1a75315950d0a0bd))
+
 ## v0.2.0 (2023-08-27)
 
 ### Feature

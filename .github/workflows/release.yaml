@@ -6,7 +6,9 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows: ["lint & test"]
-    branches: [main]
+    branches:
+      - main
+      - release*
     types:
       - completed
 

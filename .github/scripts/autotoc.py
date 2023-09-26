@@ -16,6 +16,27 @@ chapters:
 """
 
 
+def generate_file_entry(
+    root: Path,
+    file: Path,
+    num_indent_space: int = 2,
+):
+    """
+    Generates a file entry for a given file.
+
+    Args:
+        root (Path): The root directory of the directory structure.
+        file (Path): The file to generate the entry for.
+        num_indent_space (int, optional): The number of spaces to use for indentation. Defaults to 2.
+
+    Returns:
+        str: The updated contents of the TOC.
+    """
+    indent = " " * num_indent_space
+    rel_path = file.relative_to(root)
+    return f"{indent}- file: {rel_path.parent}/{rel_path.stem}\n"
+
+
 def generate_toc(
     toc_contents: str,
     root: Path,
@@ -34,19 +55,31 @@ def generate_toc(
     Returns:
         str: The updated contents of the TOC.
     """
-    indent = " " * num_indent_space
     section_dir = section_dir or root
-    for path_ in section_dir.iterdir():
+    _files, _dirs = [], []
+    index_path = ""
+    for path_ in sorted(section_dir.iterdir()):
         if path_.is_dir():
-            num_indent_space += 2
-            indent = " " * num_indent_space
-            toc_entry = f"{indent}sections:\n"
-            toc_contents += toc_entry
-            toc_contents = generate_toc(toc_contents, root, path_, num_indent_space + 2)
-        else:
-            rel_path = path_.relative_to(root)
-            toc_entry = f"{indent}- file: {rel_path.parent}/{rel_path.stem}\n"
-            toc_contents += toc_entry
+            _dirs.append(path_)
+        elif path_.name == "index.md":
+            index_path = path_
+        elif path_.suffix in [".md", ".ipynb"]:
+            _files.append(path_)
+    if index_path:
+        toc_contents += generate_file_entry(root, index_path, num_indent_space)
+
+    if len(_files + _dirs) == 0:
+        return toc_contents
+
+    num_indent_space += 2
+    indent = " " * num_indent_space
+    toc_contents += f"{indent}sections:\n"
+    for path_ in _files:
+        toc_contents += generate_file_entry(root, path_, num_indent_space + 2)
+
+    for path_ in _dirs:
+        toc_contents = generate_toc(toc_contents, root, path_, num_indent_space + 2)
+
     return toc_contents
 
 
