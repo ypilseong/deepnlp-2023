@@ -8,8 +8,16 @@ chapters:
   - file: syllabus/index
   - file: projects/index
     sections:
+      - file: projects/202021009/index
+      - file: projects/202021013/index
       - file: projects/202221014/index
+        sections:
+          - file: projects/202221014/proposal
+      - file: projects/202332012/index
       - file: projects/id/index
         sections:
           - file: projects/id/content
+          - file: projects/id/proposal
       - file: projects/pilseong_202121010/index
+        sections:
+          - file: projects/pilseong_202121010/proposal
