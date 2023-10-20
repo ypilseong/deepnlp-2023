@@ -19,7 +19,7 @@ docker_base_image_variant_name: base
 docker_container_uid: 9001
 docker_container_username: dev
 docker_name_prefix: DEEPNLP2023
-docker_project_name: deepnlp2023
+docker_project_name: deepnlp-2023
 docker_registry: ghcr.io
 docker_run_command: zsh
 docker_service_name: workspace
