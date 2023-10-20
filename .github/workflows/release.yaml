@@ -21,7 +21,7 @@ jobs:
     # Name the Job
     name: semantic-release
     # check if the workflow result is success
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
     # Set the agent to run on
     runs-on: ${{ matrix.os }}
     strategy:
