@@ -7,7 +7,6 @@ on:
   workflow_run:
     workflows: ["lint & test"]
     branches:
-      - main
       - release*
     types:
       - completed
