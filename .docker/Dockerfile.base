@@ -16,9 +16,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Updates the image and installs necessary packages
 RUN apt-get update --fix-missing \
     && apt-get install -y curl wget jq sudo gosu git \
-    python3.9-venv python3-pip build-essential \
+    python3-launchpadlib software-properties-common build-essential \
     locales locales-all fontconfig fonts-nanum \
     tzdata openssh-server \
+    && add-apt-repository ppa:deadsnakes/ppa -y \
+    && apt-get update \
+    && apt-get -y install --no-install-recommends python3.9-venv python3-pip \
     # Cleans up unnecessary packages to reduce image size
     && apt-get autoremove -y \
     && apt-get clean -y
