@@ -1,5 +1,5 @@
 # Sets the base image for subsequent instructions
-ARG ARG_BUILD_FROM="ghcr.io/entelecheia/deepnlp2023:latest-base"
+ARG ARG_BUILD_FROM="ghcr.io/chu-aie/deepnlp-2023:latest-base"
 FROM $ARG_BUILD_FROM
 
 # Setting ARGs and ENVs for user creation and workspace setup
