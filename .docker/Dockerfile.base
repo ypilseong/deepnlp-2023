@@ -8,10 +8,7 @@ FROM $ARG_BUILD_FROM
 
 # Sets labels for the image
 LABEL org.opencontainers.image.source="https://github.com/entelecheia/deepnlp-2023"
-LABEL org.opencontainers.image.description="Deep Learning for NLP is a specialized course aimed at
-    equipping undergraduate students with the essential skills and knowledge needed
-    to work on cutting-edge Natural Language Processing (NLP) problems using deep
-    learning."
+LABEL org.opencontainers.image.description="Dev Container for Deep Learning for NLP Course 2023"
 LABEL org.opencontainers.image.licenses="MIT"
 
 # Setting this argument prevents interactive prompts during the build process
@@ -32,15 +29,15 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Setting ARGs and ENVs for the app
-ARG ARG_APP_INSTALL_ROOT="/opt"
-ARG ARG_APP_DIRNAME="deepnlp2023"
+ARG ARG_APP_INSTALL_ROOT="/workspace/projects"
+ARG ARG_APP_DIRNAME="deepnlp-2023"
+ARG ARG_WORKSPACE_ROOT="/workspace"
+ENV WORKSPACE_ROOT $ARG_WORKSPACE_ROOT
 ENV APP_INSTALL_ROOT $ARG_APP_INSTALL_ROOT
 ENV APP_DIRNAME $ARG_APP_DIRNAME
 ENV APP_SRC_DIR=${APP_INSTALL_ROOT}/${APP_DIRNAME}
-ENV APP_VIRTUAL_ENV=${APP_INSTALL_ROOT}/.venvs/${APP_DIRNAME}
+ENV APP_VIRTUAL_ENV=${WORKSPACE_ROOT}/.venvs/${APP_DIRNAME}
 ENV APP_WORKSPACE_ROOT=${APP_INSTALL_ROOT}/workspace
-ARG ARG_WORKSPACE_ROOT="/workspace"
-ENV WORKSPACE_ROOT $ARG_WORKSPACE_ROOT
 # Sets up the workspace for the user
 RUN mkdir -p $WORKSPACE_ROOT/projects
 

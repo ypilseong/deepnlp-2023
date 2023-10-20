@@ -2,7 +2,7 @@
 _commit: v0.25.0
 _src_path: gh:entelecheia/hyperfast-docker-template
 app_dirname: deepnlp2023
-app_install_root: /opt
+app_install_root: /workspace/projects
 app_service_name: app
 app_source_branch: main
 app_source_repo: chu-aie/deepnlp-2023
