@@ -1,6 +1,9 @@
 # environment files
 .env.secret
 
+# project specific files
+workspace/
+
 # hypothesis: https://github.com/HypothesisWorks/hypothesis
 .hypothesis/
 .vscode/
