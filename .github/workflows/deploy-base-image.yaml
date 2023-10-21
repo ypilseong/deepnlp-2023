@@ -10,7 +10,6 @@ on:
   #     - docker
   #   paths:
   #     - .docker/**
-  create:
   pull_request:
     types:
       - opened
