@@ -12,7 +12,7 @@ on:
   #     - .docker/**
   pull_request:
     types:
-      - opened
+      - closed
     branches:
       - docker
 
@@ -23,6 +23,8 @@ env:
 # There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
 jobs:
   build-and-push-image:
+    # this job will only run if the PR has been merged or it is manually triggered
+    if: ${{ github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
