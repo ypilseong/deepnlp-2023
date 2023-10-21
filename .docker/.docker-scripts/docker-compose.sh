@@ -9,7 +9,7 @@ COMMAND                The operation to be performed. Must be one of: [build|con
 
 Options:
 -v, --variant IMAGE_VARIANT     Specify a variant for the Docker image.
---id CONTAINER_ID               Specify a container ID when using the 'run' command.
+-p, --pid PROJECT_ID            Specify a project ID for the container instance.
 -r, --run RUN_COMMAND           Specify a command to run when using the 'run' command. Default: bash
 -h, --help                      Display this help message.
 
@@ -20,7 +20,7 @@ $0 build -v base
 "
 
 # declare arguments
-CONTAINER_ID="admin"
+PROJECT_ID="admin"
 COMMAND="build"
 VARIANT="base"
 RUN_COMMAND="bash"
@@ -42,12 +42,12 @@ while [[ $# -gt 0 ]]; do
     --variant=*)
         VARIANT="${1#*=}"
         ;;
-    --id)
-        CONTAINER_ID="$2"
+    -p | --pid)
+        PROJECT_ID="$2"
         shift
         ;;
-    --id=*)
-        CONTAINER_ID="${1#*=}"
+    --pid=*)
+        PROJECT_ID="${1#*=}"
         ;;
     -r | --run)
         RUN_COMMAND="$2"
@@ -125,12 +125,12 @@ if [ -e "${DOCKER_GLOBAL_ENV_FILENAME}" ]; then
 fi
 # shellcheck disable=SC1091
 source .docker/docker.version
-CONTAINER_ID_ENV_FILE=".docker/.ids/${CONTAINER_ID}.env"
-if [ -e "${CONTAINER_ID_ENV_FILE}" ]; then
-    echo "Loading container ID specific environment variables from ${CONTAINER_ID_ENV_FILE}"
+PROJECT_ID_ENV_FILE=".docker/.ids/${PROJECT_ID}.env"
+if [ -e "${PROJECT_ID_ENV_FILE}" ]; then
+    echo "Loading project ID specific environment variables from ${PROJECT_ID_ENV_FILE}"
     set -x # print commands and thier arguments
     # shellcheck disable=SC1091,SC1090
-    source "${CONTAINER_ID_ENV_FILE}"
+    source "${PROJECT_ID_ENV_FILE}"
     set +x # disable printing of environment variables
 fi
 if [ -e .docker/docker.common.env ]; then
