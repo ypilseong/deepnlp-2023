@@ -14,6 +14,7 @@ if [[ -n "$SSH_PUB_KEY" ]] && [[ ! -d "${HOME}/.ssh" ]]; then
     echo "${SSH_PUB_KEY}" > "${HOME}/.ssh/authorized_keys"
 fi
 chmod -R 700 "${HOME}/.ssh"
+sudo cp -f "$WORKSPACE_ROOT/scripts/sshd_config" "/etc/ssh/sshd_config"
 sudo service ssh start
 
 # start jupyter notebook in background and redirect output to logfile
