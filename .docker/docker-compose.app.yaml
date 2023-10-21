@@ -49,6 +49,7 @@ services:
       IMAGE_VARIANT: $IMAGE_VARIANT
       JUPYTER_PORT: $CONTAINER_JUPYTER_PORT
       JUPYTER_TOKEN: $CONTAINER_JUPYTER_TOKEN
+      HF_HOME: $CONTAINER_HF_HOME
     ulimits:
       # Sets the stack size and memory lock limits
       stack: 67108864
@@ -62,13 +63,11 @@ services:
       - "$HOST_WEB_SVC_PORT:$CONTAINER_WEB_SVC_PORT"
     volumes:
       # Maps directories from the host to the container
-      - "$PWD/.docker/scripts:$CONTAINER_WORKSPACE_ROOT/scripts"
-      - ${HF_HOME}:${APP_HF_HOME}
-      - "$WORKSPACE_ROOT:$CONTAINER_WORKSPACE_ROOT"
-      - "$HOME/.cache:/home/$USERNAME/.cache"
-      - "$HOME/.ssh:/home/$USERNAME/.ssh"
-      - "$HOME/.config/gh:/home/$USERNAME/.config/gh"
-      - "$HOME/.passage:/home/$USERNAME/.passage"
+      - "$HOST_WORKSPACE_ROOT:$CONTAINER_WORKSPACE_ROOT"
+      - "$HOST_SCRIPTS_DIR:$CONTAINER_WORKSPACE_ROOT/scripts"
+      - "$HOST_CACHE_DIR:$CONTAINER_CACHE_DIR"
+      - "$HOST_HF_HOME:$CONTAINER_HF_HOME"
+      - "$HOST_SSH_DIR:$CONTAINER_SSH_DIR"
     deploy:
       resources:
         reservations:
