@@ -12,9 +12,10 @@ echo "Starting docker container..."
 if [[ -n "$SSH_PUB_KEY" ]] && [[ ! -d "${HOME}/.ssh" ]]; then
     mkdir -p "${HOME}/.ssh"
     echo "${SSH_PUB_KEY}" > "${HOME}/.ssh/authorized_keys"
-    chmod -R 700 "${HOME}/.ssh"
-    sudo service ssh start
 fi
+chmod -R 700 "${HOME}/.ssh"
+sudo service ssh start
+
 # start jupyter notebook in background and redirect output to logfile
 # change working directory to workspace root
 # set token to value of JUPYTER_TOKEN
