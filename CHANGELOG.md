@@ -1,5 +1,18 @@
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-10-21)
+
+### Feature
+
+* **docker-scripts:** Add sshd_config file and copy sshd_config to appropriate directory ([`7c38c74`](https://github.com/chu-aie/deepnlp-2023/commit/7c38c746880edbaf4a5dece30f988660706cdeb7))
+* **Dockerfile.base:** Add zsh to the list of packages installed ([`aebbfc0`](https://github.com/chu-aie/deepnlp-2023/commit/aebbfc07ea88ff537db76e444ad3e03d5c93b955))
+* **docker:** Add new project environment files ([`e455642`](https://github.com/chu-aie/deepnlp-2023/commit/e455642a0792c2ef9e62100f105587c6f4cd626f))
+* **docker:** Add admin.env configuration for Docker ([`a6af5d6`](https://github.com/chu-aie/deepnlp-2023/commit/a6af5d6d265eb524bd96617e847c67961e7ca4bc))
+* **docker:** Add jupyterlab to base requirements ([`8565712`](https://github.com/chu-aie/deepnlp-2023/commit/856571239cbe43023fd5bc88ecd4c244dd75c6ad))
+* **docker:** Add container ID support ([`6cbf058`](https://github.com/chu-aie/deepnlp-2023/commit/6cbf058c7bb82c1fece557468059eea7067d47d6))
+* **pyproject.toml:** Add version_pattern in semantic_release ([`1cd1e25`](https://github.com/chu-aie/deepnlp-2023/commit/1cd1e25c9e9b5e7a8d2bcffbf97590a37aa3c4c8))
+* **docker-config:** Add new docker configuration file ([`43e08f2`](https://github.com/chu-aie/deepnlp-2023/commit/43e08f2a934cd55bf4681400983aac290a36af8b))
+
 ## v0.3.0 (2023-09-17)
 
 ### Feature
