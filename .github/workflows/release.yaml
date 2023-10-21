@@ -12,7 +12,7 @@ on:
       - completed
   pull_request:
     types:
-      - opened
+      - closed
     branches:
       - release*
 
@@ -26,7 +26,7 @@ jobs:
     # Name the Job
     name: semantic-release
     # check if the workflow result is success
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' }}
     # Set the agent to run on
     runs-on: ${{ matrix.os }}
     strategy:
