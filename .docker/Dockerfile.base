@@ -15,7 +15,7 @@ LABEL org.opencontainers.image.licenses="MIT"
 ARG DEBIAN_FRONTEND=noninteractive
 # Updates the image and installs necessary packages
 RUN apt-get update --fix-missing \
-    && apt-get install -y curl wget jq sudo gosu git \
+    && apt-get install -y curl wget jq sudo gosu git zsh \
     python3-launchpadlib software-properties-common build-essential \
     locales locales-all fontconfig fonts-nanum \
     tzdata openssh-server \
