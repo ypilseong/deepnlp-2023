@@ -43,7 +43,11 @@ _Prepared by: [Group Name]_
 
 - Define the scope of the project, outlining its features and functionalities.
 - Mention any limitations or constraints such as resources, time, or technologies.
-- 
+- 구체적 -  (작성중)
+- 측정가능 - (작성중)
+- 행동중심 - (작성중)
+- 현실적 - 가장 필요한 것은 뭐니뭐니해도 프로그래밍
+- 제한 시간이 있는 - 7주 정도 시간이 남아있음
 ## 5. 소프트웨어 프로세스 모델
 
 - State the chosen software process model (e.g., Agile, Waterfall, Scrum).
