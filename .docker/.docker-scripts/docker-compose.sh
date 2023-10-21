@@ -9,6 +9,7 @@ COMMAND                The operation to be performed. Must be one of: [build|con
 
 Options:
 -v, --variant IMAGE_VARIANT     Specify a variant for the Docker image.
+--id CONTAINER_ID               Specify a container ID when using the 'run' command.
 -r, --run RUN_COMMAND           Specify a command to run when using the 'run' command. Default: bash
 -h, --help                      Display this help message.
 
@@ -19,6 +20,7 @@ $0 build -v base
 "
 
 # declare arguments
+CONTAINER_ID="admin"
 COMMAND="build"
 VARIANT="base"
 RUN_COMMAND="bash"
@@ -39,6 +41,13 @@ while [[ $# -gt 0 ]]; do
         ;;
     --variant=*)
         VARIANT="${1#*=}"
+        ;;
+    --id)
+        CONTAINER_ID="$2"
+        shift
+        ;;
+    --id=*)
+        CONTAINER_ID="${1#*=}"
         ;;
     -r | --run)
         RUN_COMMAND="$2"
@@ -116,6 +125,14 @@ if [ -e "${DOCKER_GLOBAL_ENV_FILENAME}" ]; then
 fi
 # shellcheck disable=SC1091
 source .docker/docker.version
+CONTAINER_ID_ENV_FILE=".docker/.ids/${CONTAINER_ID}.env"
+if [ -e "${CONTAINER_ID_ENV_FILE}" ]; then
+    echo "Loading container ID specific environment variables from ${CONTAINER_ID_ENV_FILE}"
+    set -x # print commands and thier arguments
+    # shellcheck disable=SC1091,SC1090
+    source "${CONTAINER_ID_ENV_FILE}"
+    set +x # disable printing of environment variables
+fi
 if [ -e .docker/docker.common.env ]; then
     echo "Loading common environment variables from .docker/docker.common.env"
     set -x # print commands and thier arguments
@@ -140,6 +157,14 @@ else
     echo "Network ${CONTAINER_NETWORK_NAME} already exists."
 fi
 
+# prepare local workspace to be mounted
+echo "Preparing local workspace directories"
+[ ! -d "${HOST_WORKSPACE_ROOT}" ] && mkdir -p "${HOST_WORKSPACE_ROOT}"
+[ ! -d "${HOST_SCRIPTS_DIR}" ] && cp -r "$PWD/.docker/scripts" "${HOST_SCRIPTS_DIR}"
+[ ! -d "${HOST_SSH_DIR}" ] && mkdir -p "${HOST_SSH_DIR}"
+[ ! -d "${HOST_CACHE_DIR}" ] && mkdir -p "${HOST_CACHE_DIR}"
+[ ! -d "${HOST_HF_HOME}" ] && mkdir -p "${HOST_HF_HOME}"
+
 # run docker-compose
 if [ "${COMMAND}" == "push" ]; then
     CMD="docker push ${CONTAINER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
@@ -149,7 +174,7 @@ elif [ "${COMMAND}" == "login" ]; then
 elif [ "${COMMAND}" == "run" ]; then
     CMD="docker compose --project-directory . -f .docker/docker-compose.${VARIANT}.yaml run workspace ${RUN_COMMAND} ${ADDITIONAL_ARGS}"
 else
-    CMD="docker-compose --project-directory . -f .docker/docker-compose.${VARIANT}.yaml ${COMMAND} ${ADDITIONAL_ARGS}"
+    CMD="docker-compose --project-directory . -f .docker/docker-compose.${VARIANT}.yaml -p ${CONTAINER_HOSTNAME} ${COMMAND} ${ADDITIONAL_ARGS}"
 fi
 echo "Running command: ${CMD}"
 eval "${CMD}"
