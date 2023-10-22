@@ -146,3 +146,11 @@ docker-up-app: ## launch the docker app image
 
 docker-up-app-detach: ## launch the docker app image in detached mode
 	@bash .docker/.docker-scripts/docker-compose.sh up --variant app --detach
+
+##@ ollama
+
+ollama-start: ## launch an ollama container
+	@bash ollama/scripts/ollama.sh start
+
+ollama-run: ## run a model in ollama container
+	@bash ollama/scripts/ollama.sh run
