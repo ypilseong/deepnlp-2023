@@ -26,7 +26,7 @@ _Prepared by: [Group Name]_
 ## 1. 요약
 
 - Summarize the project's primary goals, intended outcomes, and problem it aims to solve. Keep it concise, ideally under 200 words.
--  인공지능의 이미지 인식기능으로서 s펜으로 적혀진 문장만으로 이미지를 토대로 좌표를 추적할수 있을것임을 파악하게됨. 따라서  이미지 파악에 관련한 선두작업으로 S펜으로 작성된것을 자동 텍스트화하여 작성된 장소에 따라 이동할수 있도록하는 프로그램을 만드려고함.   
+-  인공지능의 자연어처리를 드론에 적용하여 명령된 장소에 따라 이동할수 있도록하는 프로그램을 만드려고함.    
 
 ## 2. 배경
 - 2023년 1월쯤부터 초경량비행장치중에서 멀티콥터 종목의 자격증을 따기위해서, 그리고 멀티콥터에 대한 지식을 습득하기위해 전문교육기관으로가서 비행시간 24시간 이상을 채우던 중이였음.  그러던중 2022년에 만들어진 chatGPT에 대한 정보를 듣고 인공지능에 대해서 조사해본 결과
@@ -39,10 +39,9 @@ _Prepared by: [Group Name]_
 - Describe how the software will meet these objectives and solve the outlined problem.
 - 구체적 -  구두명령을 내렸을때 드론이 필요한 위치로 이동할수 있는가를 알아본다.
 - 측정가능 - 장기적인 프로젝트이기때문에 프로그래밍, 명령의 가짓수?, 실전 비행 테스트 등으로 세부 목표를 나뉘며 혹여나 일정으로 인해  드론 비행 테스트가 안될경우  답변의 출력을 확인함 (예 -> 구두명령으로 왼쪽 5m 이동명령을 내렸다면 xy축으로 생각했을시 출력 결과에 x5로 나옴) 
-  있다면)
 - 행동중심 - 해당 과제물에서 중요한것은 임베딩임. 드론은 결국 기계이므로 기계가 동작하기위한 프로그래밍이 절대조건으로 필요하게됨 따라서 임베딩을 위한 준비가 필요함. 
 - 현실적 -  임베딩을 위한 파이썬의 기본적인 문법 입력은 가능하지만 문제는 수행명령이 내려질수 있는 경우의 수가 많으므로 시간이 걸리기때문에 확실한 이동명령(예:왼쪽으로 고도를 유지한채 5m이동.)정도를 인식할수 있도록함.   
-- 제한적인 - 기말까지 7주 정도 시간이 남아있음. 그시간안에 기말고사 과목들에 대한 준비가 이루어지기때문에 기말 준비시간 1주를 빼면 6주가 남음.   따라서 11월 28일까지 프로그래밍을 끝내놔야함.
+- 제한적인 - 기말까지 7주 정도 시간이 남아있음. 그시간안에 기말고사 과목들에 대한 준비가 이루어지기때문에 기말 준비시간 1주를 빼면 6주가 남음.   따라서 11월 28일까지 초기버전 완성해야함.
   
 ## 4. 범위
 
@@ -50,6 +49,7 @@ _Prepared by: [Group Name]_
 - Mention any limitations or constraints such as resources, time, or technologies.
 - 3단계에 걸친 목표 (텍스트변환 시스템 완성 -> 좌표 비행 완성-> 화물 운송)이 주어졌으며, 각 작은목표중 지연되는 경우에는 최소한 텍스트변환 시스템, 좌표변환 시스템등의 작은 목표를 최소 큰 목표로 잡음.
 - 임베딩에 대해 아는 사람과 방과후 활동을 하면서 임베딩에 대한 기초지식을 습득하여 준비함.
+- 
 ## 5. 소프트웨어 프로세스 모델
 
 - State the chosen software process model (e.g., Agile, Waterfall, Scrum).
@@ -74,13 +74,13 @@ _Prepared by: [Group Name]_
 
 - Identify potential risks such as technical issues or resource limitations.
 - Provide mitigation strategies for each risk.
-- 비행 전:프로그램 인식이 안됨, 업데이트가 이루어지지않음, 용량 한계, 프로펠러 파손, 드론 동력원인 리튬 전지에 문제 발생,  사전비행허가를 받지않음, 안전구역 확보가 되지않음, 날씨가 비행하기 부적절함  
-- 비행 중: 날개 회전수에 불균형이 이뤄어짐, 주변에 사람이 있음, 정해진 코스를 이탈함, 너무 낮게남, 너무 높이남
-- 비행 후: 리튬전지 과열이 있었는가, 착륙 이후 고장이 있었는가, 입력된 값에 따른 착륙이 이루어졌는가
+- 데이터 부족
+- 비행중 오작동 가능성
+- 좌표 특정불가
 ## 9. 자원
 
 - Enumerate required resources, including staff roles, equipment, and software.
-
+서버, 파이썬 
 ## 10. 기술 사양 
 
 - Dive deep into technical aspects like data sources, data transformations, and algorithms.
@@ -91,9 +91,10 @@ _Prepared by: [Group Name]_
 
 - Establish a project timeline with milestones and deadlines.
 - Specify what will be delivered at each milestone and the quality assurance measures in place.
-- 
+- 임베딩 준비 시간 1주
+- 명령어 수집 프로그래밍 4주
 ## 12. 결론
 
 - Summarize key points, reiterate the project’s importance, and present a call to action.
 - Address potential challenges and limitations.
-
+- 
