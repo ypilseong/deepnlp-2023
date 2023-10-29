@@ -1,5 +1,21 @@
 <!--next-version-placeholder-->
 
+## v0.5.0 (2023-10-29)
+
+### Feature
+
+* **agent_output:** Add new file scrape_speeches.py for speech scraping functionality ([`2c2ebb0`](https://github.com/chu-aie/deepnlp-2023/commit/2c2ebb043d8a6548fdd3cb6e8781a73a7e08ecf9))
+* **autogen:** Add requirements.txt with dependencies ([`de49167`](https://github.com/chu-aie/deepnlp-2023/commit/de4916724e5a655b74eccc608919c03a52eacdbd))
+* **autogen:** Add new AssistantAgent and UserProxyAgent in autoscraper.py ([`9f2b677`](https://github.com/chu-aie/deepnlp-2023/commit/9f2b677b79014a8337efab2bb1877ba041023d17))
+* **Makefile:** Add ollama container commands ([`8300c0d`](https://github.com/chu-aie/deepnlp-2023/commit/8300c0d0b995f01927b341736d2021b8f99ff33b))
+* **ollama:** Add new environment variables ([`bbb2075`](https://github.com/chu-aie/deepnlp-2023/commit/bbb2075a338c9af77cfe324d8c6fdc4c8ec0c9e2))
+* **ollama:** Add script for docker operations ([`d527309`](https://github.com/chu-aie/deepnlp-2023/commit/d527309d7ecab7b726180bcf5169ae067dd0d423))
+* **ollama:** Add README.md for tool usage instructions ([`4afad8e`](https://github.com/chu-aie/deepnlp-2023/commit/4afad8e2cef5d682253d8b91a6e827dd50e0489a))
+
+### Fix
+
+* **dependencies:** Adjust python version constraint ([`1a0532a`](https://github.com/chu-aie/deepnlp-2023/commit/1a0532a7da0ca82cbac7b42a96c62834a70b4aec))
+
 ## v0.4.0 (2023-10-21)
 
 ### Feature
