@@ -1,10 +1,16 @@
 import autogen
 
-config_list = autogen.config_list_from_dotenv(
-    # dotenv_file_path="examples/autogen/config.env"
-)
-
-assert len(config_list) > 0
+# config_list = autogen.config_list_from_dotenv(
+#     # dotenv_file_path="examples/autogen/config.env"
+# )
+config_list = [
+    {
+        "model": "mistral-instruct-7b", #the name of your running model
+        "api_base": "http://localhost:18881/v1", #the local address of the api
+        "api_type": "open_ai",
+        "api_key": "NULL", # just a placeholder
+    }
+]
 print("models to use: ", [config_list[i]["model"] for i in range(len(config_list))])
 
 llm_config = {
