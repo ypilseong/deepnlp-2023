@@ -1,5 +1,19 @@
 <!--next-version-placeholder-->
 
+## v0.6.0 (2023-10-31)
+
+### Feature
+
+* **docker-compose:** Add exec command, add workspace directories creation ([`980b29e`](https://github.com/chu-aie/deepnlp-2023/commit/980b29e0c83481a2529dd74fc91abf42972d2934))
+* **ollama:** Add docker-compose.yaml file, add docker.env file ([`03acea4`](https://github.com/chu-aie/deepnlp-2023/commit/03acea46f92833f0c636258442c6875860204822))
+* **mistral:** Add model download script ([`3fffc00`](https://github.com/chu-aie/deepnlp-2023/commit/3fffc001a312285670a63c380e6d20ac81f3d08a))
+* **mistral:** Add model name and huggingface paths to docker environment variables. ([`127cf2e`](https://github.com/chu-aie/deepnlp-2023/commit/127cf2ec60c9ea26f669db1152097d96d8fc742c))
+* **docs:** Add Quickstart guide for Mistral AI ([`b340a7a`](https://github.com/chu-aie/deepnlp-2023/commit/b340a7a0d0a2bbded176c005373d522031a8676f))
+* **docker:** Add docker.common.env configuration file ([`3a2047b`](https://github.com/chu-aie/deepnlp-2023/commit/3a2047b4e0de47369515e3ef7aa8db53bf449272))
+* **docker:** Add new docker configuration for Mistral project ([`b119452`](https://github.com/chu-aie/deepnlp-2023/commit/b11945252317701de465ca09109b604800244d2a))
+* **llmsvc/mistral:** Add docker-compose.yaml configuration ([`5e4bf42`](https://github.com/chu-aie/deepnlp-2023/commit/5e4bf42a23450c92d1f8d0af73d5eaf16c48a7a8))
+* **docker-compose:** Add new docker-compose script ([`2ee1ce6`](https://github.com/chu-aie/deepnlp-2023/commit/2ee1ce64280bbe6037c28f641b21f4b30b00c870))
+
 ## v0.5.0 (2023-10-29)
 
 ### Feature
