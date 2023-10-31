@@ -9,8 +9,8 @@ services:
     hostname: $CONTAINER_HOSTNAME
     command:
       # Specifies the command to be executed when the container is run
-      - "--host 0.0.0.0"
-      - "--model=${CONTAINER_MODEL_DIR}"
+      - "--host=0.0.0.0"
+      - "--model=${MODEL_NAME}"
     # set the environment variables
     environment:
       HF_TOKEN: $CONTAINER_HF_TOKEN
@@ -24,7 +24,7 @@ services:
       - "$HOST_WEB_SVC_PORT:$CONTAINER_WEB_SVC_PORT"
     volumes:
       # Maps directories from the host to the container
-      - "$HOST_MODEL_DIR:$CONTAINER_MODEL_DIR"
+      - "$HOST_HF_HOME:$CONTAINER_HF_HOME"
     deploy:
       resources:
         reservations:
