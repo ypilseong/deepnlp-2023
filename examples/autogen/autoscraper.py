@@ -5,7 +5,7 @@ import autogen
 # )
 config_list = [
     {
-        "model": "mistral-instruct-7b", #the name of your running model
+        "model": "mistralai/Mistral-7B-Instruct-v0.1", #the name of your running model
         "api_base": "http://localhost:18881/v1", #the local address of the api
         "api_type": "open_ai",
         "api_key": "NULL", # just a placeholder
