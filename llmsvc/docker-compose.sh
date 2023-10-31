@@ -77,6 +77,8 @@ elif [ "${COMMAND}" == "down" ]; then
     echo "Stopping docker container for the project: ${PROJECT_NAME}"
 elif [ "${COMMAND}" == "run" ]; then
     echo "Running docker container for the project: ${PROJECT_NAME}"
+elif [ "${COMMAND}" == "exec" ]; then
+    echo "Executing command in docker container for the project: ${PROJECT_NAME}"
 elif [ "${COMMAND}" == "login" ]; then
     echo "Logging into docker registry for the project: ${PROJECT_NAME}"
 else
@@ -143,16 +145,20 @@ else
 fi
 
 # prepare local workspace to be mounted
-# echo "Preparing local workspace directories"
-# [ ! -d "${HOST_WORKSPACE_ROOT}" ] && mkdir -p "${HOST_WORKSPACE_ROOT}"
+echo "Preparing local workspace directories"
+HOST_WORKSPACE_ROOT=${HOST_WORKSPACE_ROOT:-""}
+if [[ -n "${HOST_WORKSPACE_ROOT}" ]]; then
+    echo "Creating workspace directory: ${HOST_WORKSPACE_ROOT}"
+    [ ! -d "${HOST_WORKSPACE_ROOT}" ] && mkdir -p "${HOST_WORKSPACE_ROOT}"
+fi
 # [ ! -d "${HOST_HF_HOME}" ] && mkdir -p "${HOST_HF_HOME}"
 
 # run docker-compose
 if [ "${COMMAND}" == "login" ]; then
     echo "GITHUB_CR_PAT: $GITHUB_CR_PAT"
     CMD="docker login ghcr.io -u $GITHUB_USERNAME"
-elif [ "${COMMAND}" == "run" ]; then
-    CMD="docker compose --project-directory . -f ${DOCKER_PROJECT_COMPOSE_FILE} run ${DOCKER_PROJECT_SERVICE_NAME} ${RUN_COMMAND} ${ADDITIONAL_ARGS}"
+elif [ "${COMMAND}" == "run" ] || [ "${COMMAND}" == "exec" ]; then
+    CMD="docker compose --project-directory . -f ${DOCKER_PROJECT_COMPOSE_FILE} ${COMMAND} ${DOCKER_PROJECT_SERVICE_NAME} ${RUN_COMMAND} ${ADDITIONAL_ARGS}"
 else
     CMD="docker-compose --project-directory . -f ${DOCKER_PROJECT_COMPOSE_FILE} -p ${DOCKER_PROJECT_NAME} ${COMMAND} ${ADDITIONAL_ARGS}"
 fi
