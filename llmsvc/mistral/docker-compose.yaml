@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  # Defines a service name
+  app:
+    # Sets the image name for the built image
+    image: $IMAGE_NAME
+    # Sets the hostname of the container
+    hostname: $CONTAINER_HOSTNAME
+    command:
+      # Specifies the command to be executed when the container is run
+      - "--host 0.0.0.0"
+      - "--model=${CONTAINER_MODEL_DIR}"
+    # set the environment variables
+    environment:
+      HF_TOKEN: $CONTAINER_HF_TOKEN
+    ulimits:
+      # Sets the stack size and memory lock limits
+      stack: 67108864
+      memlock: -1
+    # Allows the container to use the host's IPC namespace
+    ipc: $CONTAINER_IPC
+    ports:
+      - "$HOST_WEB_SVC_PORT:$CONTAINER_WEB_SVC_PORT"
+    volumes:
+      # Maps directories from the host to the container
+      - "$HOST_MODEL_DIR:$CONTAINER_MODEL_DIR"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            # Reserves the specified GPU for the container
+            - driver: nvidia
+              device_ids: ["${CONTAINER_CUDA_DEVICE_ID}"]
+              capabilities: [gpu]
+networks:
+  default:
+    # Sets the name of the default network and makes it external
+    name: $CONTAINER_NETWORK_NAME
+    external: true
