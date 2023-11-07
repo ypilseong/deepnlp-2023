@@ -96,5 +96,8 @@ RUN chown --recursive "${USER_UID}:${USER_GID}" "${WORKSPACE_ROOT}"
 RUN chown --recursive "${USER_UID}:${USER_GID}" "${APP_INSTALL_ROOT}"
 USER $USERNAME
 
+# Installs Git LFS for large file version control
+RUN git lfs install
+
 # Specifies the command that will be executed when the container is run
 CMD ["bash"]

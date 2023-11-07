@@ -43,6 +43,8 @@ exclude = [
     '.copier-template',
     '.refs',
     'agent_output',
+    'examples',
+    'workspace',
 ]
 
 [tool.isort]
@@ -56,6 +58,9 @@ skip = [
     'venv',
     '.copier-template',
     '.refs',
+    'agent_output',
+    'examples',
+    'workspace',
 ]
 
 [tool.flake8]
@@ -69,6 +74,8 @@ exclude = [
     ".copier-template",
     ".refs",
     'agent_output',
+    'examples',
+    'workspace',
 ]
 per-file-ignores = ['__init__.py:F401', '_version.py:W292']
 
@@ -84,6 +91,9 @@ exclude = [
     "venv",
     ".copier-template",
     ".refs",
+    'agent_output',
+    'examples',
+    'workspace',
 ]
 # 3rd party import
 ignore_missing_imports = true
