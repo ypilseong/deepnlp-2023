@@ -110,14 +110,12 @@ elif [ "${COMMAND}" == "train" ]; then
             --lora-alpha ${LORA_ALPHA} \
             --lora-dropout ${LORA_DROPOUT} \
             --weight-decay ${WEIGHT_DECAY} \
-            --gradient-accumulation ${GRADIENT_ACCUMULATION} \
-            --token ${HF_TOKEN} \
-            --repo-id ${REPO_ID}"
+            --gradient-accumulation ${GRADIENT_ACCUMULATION}"
 
     [[ "$USE_FP16" == "True" ]] && CMD="$CMD --fp16"
     [[ "$USE_PEFT" == "True" ]] && CMD="$CMD --use-peft"
     [[ "$USE_INT4" == "True" ]] && CMD="$CMD --use-int4"
-    [[ "$PUSH_TO_HUB" == "True" ]] && CMD="$CMD --push-to-hub"
+    [[ "$PUSH_TO_HUB" == "True" ]] && CMD="$CMD --push-to-hub --token ${HF_TOKEN} --repo-id ${REPO_ID}"
 
 elif [ "${COMMAND}" == "test" ]; then
     CMD="python3 test.py"
