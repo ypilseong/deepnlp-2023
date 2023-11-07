@@ -99,7 +99,7 @@ elif [ "${COMMAND}" == "train" ]; then
             --train \
             --model ${MODEL_NAME} \
             --project-name ${AUTOTRAIN_PROJECT_NAME} \
-            --data-path / \
+            --data-path ${DATA_FILE} \
             --text-column $TEXT_COLUMM} \
             --lr ${LEARNING_RATE} \
             --batch-size ${BATCH_SIZE} \
