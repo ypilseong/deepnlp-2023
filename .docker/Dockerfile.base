@@ -103,6 +103,7 @@ RUN sh -c "$(wget -qO- https://dotfiles.entelecheia.ai/install)"
 
 USER root
 
+# Sets permissions for mounted volumes
 RUN chown -R $USERNAME:$USERNAME $WORKSPACE_ROOT
 
 # Specifies the command that will be executed when the container is run
