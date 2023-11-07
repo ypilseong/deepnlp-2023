@@ -92,7 +92,7 @@ fi
 set +a
 
 # run docker-compose
-if [ "${COMMAND}" == "train" ]; then
+if [ "${COMMAND}" == "data" ]; then
     CMD="python3 dataload.py"
 elif [ "${COMMAND}" == "train" ]; then
     CMD="python3 train.py"
