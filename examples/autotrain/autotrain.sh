@@ -95,7 +95,28 @@ set +a
 if [ "${COMMAND}" == "data" ]; then
     CMD="python3 dataload.py"
 elif [ "${COMMAND}" == "train" ]; then
-    CMD="python3 train.py"
+    CMD="autotrain llm \
+            --train \
+            --model ${MODEL_NAME} \
+            --project-name ${AUTOTRAIN_PROJECT_NAME} \
+            --data-path ${DATA_PATH} \
+            --text-column $TEXT_COLUMM} \
+            --lr ${LEARNING_RATE} \
+            --batch-size ${BATCH_SIZE} \
+            --epochs ${NUM_EPOCHS} \
+            --block-size ${BLOCK_SIZE} \
+            --warmup-ratio ${WARMUP_RATIO} \
+            --lora-r ${LORA_R} \
+            --lora-alpha ${LORA_ALPHA} \
+            --lora-dropout ${LORA_DROPOUT} \
+            --weight-decay ${WEIGHT_DECAY} \
+            --gradient-accumulation ${GRADIENT_ACCUMULATION}"
+
+    [[ "$USE_FP16" == "True" ]] && CMD="$CMD --fp16"
+    [[ "$USE_PEFT" == "True" ]] && CMD="$CMD --use-peft"
+    [[ "$USE_INT4" == "True" ]] && CMD="$CMD --use-int4"
+    [[ "$PUSH_TO_HUB" == "True" ]] && CMD="$CMD --push-to-hub --token ${HF_TOKEN} --repo-id ${REPO_ID}"
+
 elif [ "${COMMAND}" == "test" ]; then
     CMD="python3 test.py"
 fi
