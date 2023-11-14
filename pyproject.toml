@@ -134,7 +134,6 @@ tag_format = "v$version"
 [tool.semantic_release]
 branch = "main"
 version_toml = "pyproject.toml:tool.poetry.version"
-version_pattern = '.docker/docker.version:APP_VERSION="{version}"'
 version_variable = "src/deepnlp2023/_version.py:__version__"
 version_source = "tag"
 commit_version_number = true                                       # required for version_source = "tag"
