@@ -38,3 +38,6 @@ pytest-coverage.*
 
 .docker/.ids/.list
 mistral-7B-v0.1.tar
+.ipynb_checkpoints/
+
+examples/rag/llama2.pdf
