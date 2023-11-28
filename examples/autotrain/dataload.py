@@ -10,6 +10,6 @@ if not data_path:
 
 # Load the dataset
 dataset = load_dataset(data_path)
-train = dataset['train']
+train = dataset["train"]
 
-train.to_csv(data_file, index = False)
+train.to_csv(data_file, index=False)

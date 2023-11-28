@@ -11,10 +11,10 @@ for page in range(1, 11):
     # Navigate to the URL of the Central bankers' speeches page
     url = f"https://www.bis.org/cbspeeches/index.htm?m=256&cbspeeches_page={page}"
     response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    soup = BeautifulSoup(response.text, "html.parser")
 
     # Locate the table with class="documentList"
-    document_list = soup.find('table', {'class': 'documentList'})
+    document_list = soup.find("table", {"class": "documentList"})
 
     # If the table is not found, skip this page
     if document_list is None:
@@ -22,7 +22,7 @@ for page in range(1, 11):
         continue
 
     # Find all occurrences of the div with class title
-    titles = document_list.find_all('div', {'class': 'title'})
+    titles = document_list.find_all("div", {"class": "title"})
 
     # For each occurrence of the title div, extract the text and the href attribute
     for title in titles:
@@ -34,13 +34,12 @@ for page in range(1, 11):
         speech_title = title.text.strip()
 
         # Extract the href attribute as the URL of the speech
-        speech_url = title.find('a')['href']
+        speech_url = title.find("a")["href"]
 
         # Store the title and URL in a structured format
-        speeches.append({
-            'title': speech_title,
-            'url': f"https://www.bis.org{speech_url}"
-        })
+        speeches.append(
+            {"title": speech_title, "url": f"https://www.bis.org{speech_url}"}
+        )
 
     # If we've collected 100 entries, break the loop
     if len(speeches) >= 100:

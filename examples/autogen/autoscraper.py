@@ -5,10 +5,10 @@ import autogen
 # )
 config_list = [
     {
-        "model": "mistralai/Mistral-7B-Instruct-v0.1", #the name of your running model
-        "api_base": "http://localhost:18881/v1", #the local address of the api
+        "model": "mistralai/Mistral-7B-Instruct-v0.1",  # the name of your running model
+        "api_base": "http://localhost:18881/v1",  # the local address of the api
         "api_type": "open_ai",
-        "api_key": "NULL", # just a placeholder
+        "api_key": "NULL",  # just a placeholder
     }
 ]
 print("models to use: ", [config_list[i]["model"] for i in range(len(config_list))])
