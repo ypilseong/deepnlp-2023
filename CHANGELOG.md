@@ -1,5 +1,12 @@
 <!--next-version-placeholder-->
 
+## v0.8.0 (2023-11-28)
+
+### Feature
+
+* **peft:** Add integration with HuggingFace Accelerate and DeepSpeed. ([`f67ad52`](https://github.com/chu-aie/deepnlp-2023/commit/f67ad52e917edd60e4439b097842a0261257a6fe))
+* **peft:** Add new requirements file ([`b339a01`](https://github.com/chu-aie/deepnlp-2023/commit/b339a01c23413630867b2b4dfe3328b76e20ccc2))
+
 ## v0.7.0 (2023-11-07)
 
 ### Feature
