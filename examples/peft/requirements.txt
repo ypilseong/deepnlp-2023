@@ -1,0 +1,7 @@
+peft
+transformers
+accelerate
+evaluate
+deepspeed
+tqdm
+datasets
